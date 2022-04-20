@@ -31,8 +31,17 @@
       <img src="/images/image-avatar.png" alt="" id="avatar__img">
     </div>
   </header>
+  <nav class="nav nav__menu" id="nav__deploy">
+    <img onclick="closeNav()" src="/images/icon-close.svg" alt="" id="close__icon">
+    <a href="#">Collections</a> 
+    <a href="#">Men</a> 
+    <a href="#">Women</a> 
+    <a href="#">About</a> 
+    <a href="#">Contact</a> 
+    <div class="nav nav__background"></div>
+  </nav>
   <main>
-    <div id="cart__box">
+    <section id="cart__box">
       <table id="cart__content">
         <thead>
           <caption>Cart</caption>
@@ -44,18 +53,9 @@
         </tbody>
       </table>
       <a href="#" id="checkout__cart">Checkout</a>
-    </div>
-    <div class="nav__menu" id="nav__deploy">
-      <img onclick="closeNav()" src="/images/icon-close.svg" alt="" id="close__icon">
-      <a href="#">Collections</a> 
-      <a href="#">Men</a> 
-      <a href="#">Women</a> 
-      <a href="#">About</a> 
-      <a href="#">Contact</a> 
-    </div>
-    <div class="nav__background"></div>
+    </section>
     <div class="main__box">
-      <div class="main__element--slide">
+      <section class="main__element--slide">
           <!-- Slides image start -->
           <div class="slide__img--box">                    
               <img src="/images/image-product-1.jpg" alt="" class="product__img">
@@ -72,8 +72,8 @@
             <img src="/images/icon-next.svg" alt="" id="next__icon">
           </div>
           <!-- arrows end -->
-      </div>
-      <div class="main__element--info">
+      </section>
+      <section class="main__element--info">
         <h2 class="main__info--comp">SNEAKER COMPANY</h2>
         <div class="main__info--sneakerbox">
           <h1>Fall Limited Edition Sneakers</h1>
@@ -89,18 +89,18 @@
           <input type="number" id="quantity__item--quantity" value="1" disabled>
           <img onclick="aumentar()" src="/images/icon-plus.svg" alt="" id="plus__icon">
         </div>
-        <div id="main__info--button">
+        <div id="main__info--button" data-id="1">
           <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#fff" fill-rule="nonzero"/></svg>
           <h4>Add to cart</h4>
         </div>
-      </div>
+      </section>
     </div>
   </main>
   
   <script src="app.js"></script>
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">@knitaxd</a>.
-  </div>
+  </footer>
 </body>
 </html>
