@@ -5,8 +5,6 @@ body{
     transition: background-color .5s;
 }
 
-/* Start header CSS */
-
 header{
     display: flex;
     width: 100%;
@@ -20,14 +18,19 @@ header{
     position: fixed;
     z-index: 1;
     top: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 .nav__menu{
     left: 0;
     background-color: #fff;
-    overflow-x: hidden;
     padding-top: 5rem;
-    transition: 0.5s;
+}
+
+.nav__background{
+    right: 0;
+    background-color: hsl(0, 0%, 0%, 0.6);
 }
 
 .nav__menu a{
@@ -47,84 +50,16 @@ header{
     left: 2rem;
 }
 
-.nav__background{
-    right: 0;
-    background-color: hsl(0, 0%, 0%, 0.6);
-    overflow-x: hidden;
-    transition: 0.5s;
-}
+
 
 .delete__item--button{
     padding-right: 1rem;
 }
 
-#cart__box{
-    border-radius: 3%;
-    height: 0;
-    width: 96%;
-    position: fixed;
-    z-index: 1;
-    top: 11%;
-    left: 2%;
-    background-color: hsl(0, 0%, 100%);
-    overflow-x: hidden;
-    transition: 0.5s;
-}
-
-#cart__content{
-    width: 100%;
-    height: auto;
-}
-
-
-#cart__content > caption {
-    padding: 1.5rem;
-    border-bottom: 1px solid hsl(220, 14%, 85%);
-    text-align: left;
-    font-weight: 700;
-}
-
-#checkout__cart{
-    width: 80%;
-    height: 25%;
-    background-color: hsl(26, 100%, 55%);
-    padding: 1.5rem 3rem;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem auto 1.5rem auto;
-    border-radius: 0.8rem;
-    text-decoration: none;
-    color: hsl(0, 0%, 100%);
-    font-weight: 700;
-    display: none;
-}
-
-
-#cart__content tbody td{
-    padding: 0.5rem 0;
-    color: hsl(219, 9%, 45%);
-}
-
-#cart__empty--message{
-    width: 100%;
-    height: 10rem;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}
-
-#final__price{
-    font-weight: 700;
-    color: hsl(0, 0%, 0%);
-}
-
 .img__cart{
-    height: 4rem;
-    width: auto;
+    height: 3rem;
     border-radius: 0.5rem;
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 .box__element--left{
@@ -142,23 +77,20 @@ header{
     padding-right: 2rem;
 }
 
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
 .box__element--right{
     width: 35%;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
 }
 
-#menu__icon, #close__icon, #cart__icon{
+.pointer{
     cursor: pointer;
 }
-
-#avatar__img{
-    width: 20%;
-    height: auto;
-}
-
-/* Finish header CSS */
 
 .main__box{
     display: flex;
@@ -166,7 +98,7 @@ header{
 }
 
 .main__element--slide{
-    height: 46vh;
+    height: 48vh;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -177,35 +109,11 @@ header{
     height: 100%;
 }
 
-.slide__element img{
+.product__img{
     width: 100%;
-    height: 100%;
+    height: 110%;
     object-fit: cover;
 }
-
-
-/* CSS for slide */
-
-#previous__icon, #next__icon{
-    width: 2.5rem;
-    height: 2.5rem;
-    position: absolute;
-    top: 50%;
-    background-color: #fff;
-    padding: 0.8rem;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#previous__icon{
-    left: 4%;
-}
-
-#next__icon{
-    right: 4%;
-}
-
-/*CSS slide ends */
 
 .main__element--info{
     display: flex;
@@ -242,8 +150,113 @@ header{
 .main__info--pricebox{
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-top: 0;
+}
+
+.main__info--quantitybox{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.attribution{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#cart__box{
+    border-radius: 3%;
+    height: 0;
+    width: 96%;
+    position: fixed;
+    z-index: 1;
+    top: 11%;
+    left: 2%;
+    background-color: hsl(0, 0%, 100%);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+#cart__content{
+    width: 100%;
+    height: auto;
+}
+
+
+#cart__content > caption {
+    padding: 1.3rem;
+    border-bottom: 1px solid hsl(220, 14%, 90%);
+    text-align: left;
+    font-weight: 700;
+}
+
+#cart__content > tbody > tr{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0 0 0;
+    width: 100%;
+}
+
+#cart__content tbody td:nth-child(2){
+    padding: 0 1.5rem 0rem 1rem;
+    color: hsl(219, 9%, 45%);
+    width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5rem;
+}
+
+#checkout__cart{
+    width: 80%;
+    height: 25%;
+    background-color: hsl(26, 100%, 55%);
+    padding: 1.5rem 3rem;
+    margin: 1rem auto 1rem auto;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+    font-weight: 700;
+    display: none;
+}
+
+#cart__empty--message{
+    width: 100%;
+    height: 10rem;
+    font-weight: 700;
+    display: flex;
+    margin: auto;
+}
+
+
+#final__price{
+    font-weight: 700;
+    color: hsl(0, 0%, 0%);
+}
+
+#avatar__img{
+    width: 20%;
+    height: auto;
+}
+
+#previous__icon, #next__icon{
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 50%;
+    background-color: #fff;
+    padding: 0.8rem;
+    border-radius: 50%;
+}
+
+#previous__icon{
+    left: 4%;
+}
+
+#next__icon{
+    right: 4%;
 }
 
 #price__item--finalprice{
@@ -263,14 +276,6 @@ header{
     font-size: 16px;
 }
 
-.main__info--quantitybox{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2rem 0;
-}
-
-
 #quantity__item--quantity{
     border: none;
     text-align: center;
@@ -289,9 +294,6 @@ header{
 #plus__icon{
     padding: 0.7rem;
 }
-#minus__icon:hover, #plus__icon:hover{
-    background-color: hsl(0, 0%, 0%, 0.1);
-}
 
 #main__info--button{
     width: 95%;
@@ -299,10 +301,7 @@ header{
     background-color: hsl(26, 100%, 55%);
     margin: auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
     color: hsl(0, 0%, 100%);
-    cursor: pointer;
     border-radius: 10px;
 }
 
@@ -315,13 +314,63 @@ header{
     transform: scale(.8);
 }
 
+#minus__icon:hover, #plus__icon:hover{
+    background-color: hsl(0, 0%, 0%, 0.1);
+}
 
+@media screen and (min-width: 375px) {
+    .product__img{
+        height: 125%;
+    }
+}
 
+@media screen and (min-width: 425px){
+    .product__img{
+        height: 135%;
+    }
+}
 
+@media screen and (min-width: 700px){
+    .main__box{
+        flex-direction: row;
+        margin: 2rem;
+    }
 
+    .main__element--slide{
+        float: left;
+        width: 50%;
+        height: 52vh;
+        border-radius: 1rem;
+    }
 
-.attribution{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    .main__element--info{
+        width: 50%;
+    }
+    .product__img{
+        height: 120%;
+    }
+
+    #main__info--button,.main__info--quantitybox{
+        width: 180%;
+        margin-left: -100%;
+    }
+    .main__info--quantitybox{
+        margin-top: 4rem;
+    }
+
+    #cart__box{
+        width: 50%;
+        margin-left: 16rem;
+        margin-top: 1rem;
+        box-shadow: 0 1rem 2rem -1rem hsl(0, 0%, 0%);
+    }
+
+    #avatar__img{
+        width: 15%;
+    }
+
+}
+
+@media screen and (min-width: 1000px){
+    
 }

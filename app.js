@@ -154,6 +154,7 @@ function deleteSneaker(e){
     // insert html data in cart
     function cartHTML(){
 
+
         // clean HTML
         limpiarHTML()
 
@@ -174,13 +175,22 @@ function deleteSneaker(e){
                 </td>
             `;
 
-            // Fill the tbody y with items
+            // Fill the tbody with items
             checkoutCart.style.display = 'flex'
             cartContent.appendChild(row)
 
+            
 
         })
-        
+        // Checkout if cart have sneakers
+        if (cartContent.children.length === 0) {
+            const row = document.createElement('tr')
+            row.setAttribute('id', 'cart__empty--message')
+            row.className = 'center'
+            checkoutCart.style.display = 'none'
+            row.innerHTML = '<td>Your cart is empty.</td>'
+            cartContent.appendChild(row)
+        }       
     }
 
 
@@ -190,6 +200,8 @@ function limpiarHTML(){
         cartContent.removeChild(cartContent.firstChild)
     }
 }
+
+
 
 
 
