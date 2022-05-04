@@ -24,22 +24,25 @@
     <div class="box__element--left">
       <img onclick="openNav()" src="/images/icon-menu.svg" alt="" id="menu__icon" class="pointer">
       <h1 class="title">sneakers</h1>
+      <nav class="nav nav__menu" id="nav__deploy">
+        <img onclick="closeNav()" src="/images/icon-close.svg" alt="" id="close__icon" class="pointer">
+        <ul>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <div class="nav nav__background"></div>
+        </ul>
+      </nav>
     </div>
 
     <div class="center box__element--right">
+      <div id="number__items" class="center"></div>
       <img onclick="openCart()" src="/images/icon-cart.svg" alt="" id="cart__icon" class="pointer">
-      <img src="/images/image-avatar.png" alt="" id="avatar__img">
+      <img src="/images/image-avatar.png" alt="" id="avatar__img" class="pointer">
     </div>
   </header>
-  <nav class="nav nav__menu" id="nav__deploy">
-    <img onclick="closeNav()" src="/images/icon-close.svg" alt="" id="close__icon" class="pointer">
-    <a href="#">Collections</a> 
-    <a href="#">Men</a> 
-    <a href="#">Women</a> 
-    <a href="#">About</a> 
-    <a href="#">Contact</a> 
-    <div class="nav nav__background"></div>
-  </nav>
   <main>
     <section id="cart__box">
       <table id="cart__content">
@@ -64,6 +67,26 @@
               <img src="/images/image-product-4.jpg" alt="" class="product__img">
           </div>
             <!-- Slides images end -->
+            <!-- Lightbox -->
+          <div class="slide__lightbox--bg" id="lightbox">
+            <img onclick="closeLightbox()" src="/images/icon-close.svg" alt="" id="close__icon--lb" class="pointer">
+            <div class="slide__lightbox">
+              <!-- <img src="/images/image-product-1.jpg" alt="" class="lightbox__img">
+              <img src="/images/image-product-2.jpg" alt="" class="lightbox__img">
+              <img src="/images/image-product-3.jpg" alt="" class="lightbox__img">
+              <img src="/images/image-product-4.jpg" alt="" class="lightbox__img"> -->
+            </div>
+              <!-- lightbox icons -->
+                <img onclick="sideSlide(-1)" src="/images/icon-previous.svg" alt="" id="previous__icon--lb" class="pointer">
+                <img onclick="sideSlide(1)" src="/images/icon-next.svg" alt="" id="next__icon--lb" class="pointer">
+              <!-- Thumbnail control lightbox -->
+              <div class="slide__thumbnail--lb">
+                <img onclick="currentSlide(1)" src="/images/image-product-1-thumbnail.jpg" alt="" class="thumbnail__img pointer">
+                <img onclick="currentSlide(2)" src="/images/image-product-2-thumbnail.jpg" alt="" class="thumbnail__img pointer">
+                <img onclick="currentSlide(3)" src="/images/image-product-3-thumbnail.jpg" alt="" class="thumbnail__img pointer">
+                <img onclick="currentSlide(4)" src="/images/image-product-4-thumbnail.jpg" alt="" class="thumbnail__img pointer">
+              </div>
+          </div>
           <!-- arrows start -->
           <div onclick="sideSlide(-1)" class="previous__arrow">
             <img src="/images/icon-previous.svg" alt="" id="previous__icon" class="pointer">
@@ -84,14 +107,25 @@
           <h3 id="price__item--discount">50%</h3>
           <h3 id="price__item--beforeprice">$250.00</h3>
         </div>
-        <div class="center main__info--quantitybox">
-          <img onclick="disminuir()" src="/images/icon-minus.svg" alt="" id="minus__icon">
-          <input type="number" id="quantity__item--quantity" value="1" disabled>
-          <img onclick="aumentar()" src="/images/icon-plus.svg" alt="" id="plus__icon">
+        <div class="quantity__button--box">
+          <div class="center main__info--quantitybox">
+            <img onclick="disminuir()" src="/images/icon-minus.svg" alt="" id="minus__icon">
+            <input type="number" id="quantity__item--quantity" value="1" disabled>
+            <img onclick="aumentar()" src="/images/icon-plus.svg" alt="" id="plus__icon">
+          </div>
+          <div id="main__info--button" class="center pointer" data-id="1">
+            <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#fff" fill-rule="nonzero"/></svg>
+            <h4>Add to cart</h4>
+          </div>
         </div>
-        <div id="main__info--button" class="center pointer" data-id="1">
-          <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#fff" fill-rule="nonzero"/></svg>
-          <h4>Add to cart</h4>
+      </section>
+      <!-- thumbnail images section -->
+      <section class="main__element--thumbnail">
+        <div class="slide__thumbnail--box">
+          <img onmouseover="currentSlide(1)" onclick="openLightbox()" src="/images/image-product-1-thumbnail.jpg" alt="" class="thumbnail__img pointer">
+          <img onmouseover="currentSlide(2)" onclick="openLightbox()" src="/images/image-product-2-thumbnail.jpg" alt="" class="thumbnail__img pointer">
+          <img onmouseover="currentSlide(3)" onclick="openLightbox()" src="/images/image-product-3-thumbnail.jpg" alt="" class="thumbnail__img pointer">
+          <img onmouseover="currentSlide(4)" onclick="openLightbox()" src="/images/image-product-4-thumbnail.jpg" alt="" class="thumbnail__img pointer">
         </div>
       </section>
     </div>

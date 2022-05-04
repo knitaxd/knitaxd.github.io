@@ -17,16 +17,24 @@ const sneakerName = document.querySelector('.main__info--sneakerbox h1');
 const sneakerIdentify = document.querySelector('#main__info--button').getAttribute('data-id')
 let cartItems = [];
 
-// arrow functions
+// Slides functions
 let indexValue = 1
 showImg(indexValue)
 
+    // Next and previous controls for img
 function sideSlide(e){
     showImg(indexValue +=e)
 }
 
+    // Thumbnail control function
+function currentSlide(e){
+    showImg(indexValue = e)
+}
+
+    // Shows the selected img in indexValue
 function showImg(e){
-    const img = document.querySelectorAll('.product__img')
+    let img = document.querySelectorAll('.product__img')
+    let thumb = document.querySelectorAll('.thumbnail__img')
     if(e > img.length) {
         indexValue = 1
     } else if(e < 1){
@@ -37,8 +45,34 @@ function showImg(e){
         img[i].style.display = 'none';
     }
 
+    for (i = 0; i < thumb.length; i++) {
+        thumb[i].className = thumb[i].className.replace(" active__thumb", "");
+    }
+
     img[indexValue - 1].style.display = 'block';
+    thumb[indexValue - 1].className += " active__thumb"
 }
+
+// Lightbox functions
+    // Open and close lightbox
+let lightboxBg = document.querySelector('.slide__lightbox--bg')
+
+function openLightbox (){
+    lightboxBg.style.display = 'block'
+    let img = document.querySelectorAll('.product__img')
+    if(lightboxBg.style.display = 'block'){
+        let lightboxImg = document.querySelector('.slide__lightbox')
+        for (let i = 0; i < img.length; i++) {
+            lightboxImg.appendChild(img[i])
+        }
+    }
+}
+
+    function closeLightbox(){
+    lightboxBg.style.display = 'none'
+}
+
+
 
 // quantity functions
 let start = 1;
@@ -74,7 +108,7 @@ navBackground.addEventListener('click', closeNav)
 
 function openCart (){
     if(cart.style.height === '0vh'){
-        cart.style.height = '38vh'
+        cart.style.height = '30vh'
     } else {
         cart.style.height = '0vh'
     }
@@ -109,21 +143,24 @@ function addSneaker(){
         const sneakers = cartItems.map( sneaker => {
             if (sneaker.id === sneakerInfo.id){
                 sneaker.quantity = sneaker.quantity + parseInt(quantityItem.value)
+                
+                overQuantity()
+                function overQuantity(){
+                    let overNumber = document.querySelector("#number__items")
+                    overNumber.innerHTML = `${sneaker.quantity}`
+                }
                 sneaker.finalPrice = parseInt(sneakerPrice.textContent.substring(1)) * sneaker.quantity // Calculate the final price
                 return sneaker; // return updated object
             } else{
                 return sneaker; // return not duplicated objects
             }
         } )
-        // let totalPrice = 0
-        // totalPrice = sneaker.quantity * parseInt(sneakerPrice.textContent.substring(1))
-        // console.log(totalPrice)
+
         cartItems = [...sneakers]
     }else{
          // add items to cart
         cartItems = [...cartItems, sneakerInfo]
     }
-
     
     cartHTML()
 
@@ -132,11 +169,6 @@ function addSneaker(){
         return totalPrice = parseInt(sneakerPrice.textContent.substring(1)) * quantityItem.value
     }
 }
-
-
-
-
-
 
 // Delete sneaker in the cart
 function deleteSneaker(e){
@@ -171,7 +203,7 @@ function deleteSneaker(e){
                     ${price} x ${quantity} <span id="final__price">$${finalPrice}</span>
                 </td>
                 <td>
-                   <img src="/images/icon-delete.svg" class="delete__item--button" data-id="${id}">
+                   <img src="/images/icon-delete.svg" class="delete__item--button pointer" data-id="${id}">
                 </td>
             `;
 
