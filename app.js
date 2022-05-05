@@ -54,18 +54,53 @@ function showImg(e){
 }
 
 // Lightbox functions
-    // Open and close lightbox
 let lightboxBg = document.querySelector('.slide__lightbox--bg')
+let indexLightbox = 1
+showLightbox(indexLightbox)
 
+    //Next and previous controls lightbox
+function sideLightbox(n){
+    showLightbox(indexLightbox += n)
+}
+
+    // Thumbnail control function
+function currentLightbox(n){
+    showLightbox(indexLightbox = n)
+}
+
+
+    // Display img 
+function showLightbox(n){
+    let img = document.querySelectorAll('.lightbox__img')
+    let thumb = document.querySelectorAll('.thumbnail__lb')
+    if (n > img.length){
+        indexLightbox = 1
+    } else if(n < 1){
+        indexLightbox = img.length
+    }
+
+    for (let i = 0; i < img.length; i++) {
+        img[i].style.display = 'none';
+    }
+
+    for (let i = 0; i < thumb.length; i++) {
+        thumb[i].className = thumb[i].className.replace(" active__thumb", "")
+    }
+
+    img[indexLightbox - 1].style.display = "block";
+    thumb[indexLightbox - 1].className += " active__thumb"
+}
+
+    // Open and close lightbox
 function openLightbox (){
     lightboxBg.style.display = 'block'
-    let img = document.querySelectorAll('.product__img')
-    if(lightboxBg.style.display = 'block'){
-        let lightboxImg = document.querySelector('.slide__lightbox')
-        for (let i = 0; i < img.length; i++) {
-            lightboxImg.appendChild(img[i])
-        }
-    }
+    // let img = document.querySelectorAll('.product__img')
+    // if(lightboxBg.style.display = 'block'){
+    //     let lightboxImg = document.querySelector('.slide__lightbox')
+    //     for (let i = 0; i < img.length; i++) {
+    //         lightboxImg.appendChild(img[i])
+    //     }
+    // }
 }
 
     function closeLightbox(){

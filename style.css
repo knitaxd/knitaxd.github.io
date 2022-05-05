@@ -451,7 +451,7 @@ header {
   }
 
   .thumbnail__img:hover{
-    opacity: 0.5;
+    opacity: 0.75;
   }
 
   .box__element--left {
@@ -548,7 +548,7 @@ header {
 
   /* Hide img by default*/
   .lightbox__img{
-    /* display: none; */
+    display: none;
     border-radius: 3%;
   }
 
@@ -556,15 +556,29 @@ header {
   .slide__thumbnail--lb{
     display: inline-flex;
     position: absolute;
-    bottom: 10%;
-    left: 30%;
+    bottom: 12%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
-  .slide__thumbnail--lb > img{
+  .thumbnail__box{
+    background-color: white;
     margin: 1rem;
-    width: 12%;
+    width: 7%;
     border-radius: 5%;
+    display: flex;
   }
+
+  .slide__thumbnail--lb > div > img{
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  .slide__thumbnail--lb > div > img:hover{
+    opacity: 0.5;
+  }
+
 
   /*Lightbox icons */
   #previous__icon--lb,
@@ -585,11 +599,18 @@ header {
 #previous__icon--lb{
   left: 30%;
 }
+
+
   #close__icon--lb{
     position: absolute;
     top: 15%;
     right: 31%;
     width: 1rem;
+    fill:#69707D
+  }
+
+  #close__icon--lb:hover{
+    fill: hsl(26, 100%, 55%);
   }
 
 
@@ -602,10 +623,11 @@ header {
   }
 
   #cart__box {
-    width: 35%;
-    left: 60%;
+    width: 30%;
+    left: 65%;
     top: 8%;
     border-radius: 3%;
+    overflow: hidden;
   }
 
   #price__item--finalprice,
@@ -672,8 +694,11 @@ header {
         width: 12%;
       }
 
-      .quantity__button--box{
-          margin-top: 3.5rem;
+    .quantity__button--box{
+        margin-top: 3.5rem;
       }
+    .slide__thumbnail--lb{
+        bottom: 8%;
+    }
   }
 }

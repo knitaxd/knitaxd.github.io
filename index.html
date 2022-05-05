@@ -69,22 +69,31 @@
             <!-- Slides images end -->
             <!-- Lightbox -->
           <div class="slide__lightbox--bg" id="lightbox">
-            <img onclick="closeLightbox()" src="/images/icon-close.svg" alt="" id="close__icon--lb" class="pointer">
+            <!-- <img onclick="closeLightbox()" src="/images/icon-close.svg" alt="" id="close__icon--lb" class="pointer"> -->
+            <svg onclick="closeLightbox()" id="close__icon--lb" class="pointer" width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill-rule="evenodd"/></svg>
             <div class="slide__lightbox">
-              <!-- <img src="/images/image-product-1.jpg" alt="" class="lightbox__img">
-              <img src="/images/image-product-2.jpg" alt="" class="lightbox__img">
-              <img src="/images/image-product-3.jpg" alt="" class="lightbox__img">
-              <img src="/images/image-product-4.jpg" alt="" class="lightbox__img"> -->
+                <img src="/images/image-product-1.jpg" alt="" class="lightbox__img">
+                <img src="/images/image-product-2.jpg" alt="" class="lightbox__img">
+                <img src="/images/image-product-3.jpg" alt="" class="lightbox__img">
+                <img src="/images/image-product-4.jpg" alt="" class="lightbox__img">
             </div>
               <!-- lightbox icons -->
-                <img onclick="sideSlide(-1)" src="/images/icon-previous.svg" alt="" id="previous__icon--lb" class="pointer">
-                <img onclick="sideSlide(1)" src="/images/icon-next.svg" alt="" id="next__icon--lb" class="pointer">
+                <img onclick="sideLightbox(-1)" src="/images/icon-previous.svg" alt="" id="previous__icon--lb" class="pointer">
+                <img onclick="sideLightbox(1)" src="/images/icon-next.svg" alt="" id="next__icon--lb" class="pointer">
               <!-- Thumbnail control lightbox -->
               <div class="slide__thumbnail--lb">
-                <img onclick="currentSlide(1)" src="/images/image-product-1-thumbnail.jpg" alt="" class="thumbnail__img pointer">
-                <img onclick="currentSlide(2)" src="/images/image-product-2-thumbnail.jpg" alt="" class="thumbnail__img pointer">
-                <img onclick="currentSlide(3)" src="/images/image-product-3-thumbnail.jpg" alt="" class="thumbnail__img pointer">
-                <img onclick="currentSlide(4)" src="/images/image-product-4-thumbnail.jpg" alt="" class="thumbnail__img pointer">
+                <div class="thumbnail__box">
+                  <img onclick="currentLightbox(1)" src="/images/image-product-1-thumbnail.jpg" alt="" class="thumbnail__lb pointer">
+                </div>
+                <div class="thumbnail__box">
+                  <img onclick="currentLightbox(2)" src="/images/image-product-2-thumbnail.jpg" alt="" class="thumbnail__lb pointer">
+                </div>
+                <div class="thumbnail__box">
+                  <img onclick="currentLightbox(3)" src="/images/image-product-3-thumbnail.jpg" alt="" class="thumbnail__lb pointer">
+                </div>
+                <div class="thumbnail__box">
+                  <img onclick="currentLightbox(4)" src="/images/image-product-4-thumbnail.jpg" alt="" class="thumbnail__lb pointer">
+                </div>
               </div>
           </div>
           <!-- arrows start -->
